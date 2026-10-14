@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Pepper Publica LLP | Where Words Take Root</title>
+    <style>
+        :root {
+            --primary: #1b4d3e;
+            --secondary: #2e7d32;
+            --accent: #d4af37;
+            --light-bg: #f7faf8;
+            --dark-text: #1c2826;
+            --card-bg: #ffffff;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.65;
+        }
+        /* Header & Navbar */
+        header.navbar {
+            background: var(--primary);
+            color: white;
+            padding: 15px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand h1 {
+            font-size: 22px;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+        .brand span {
+            font-size: 12px;
+            color: var(--accent);
+            font-style: italic;
+        }
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #e8f5e9;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        .cart-btn {
+            background: var(--accent);
+            color: var(--dark-text);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(27,77,62,0.94), rgba(20,45,36,0.92)),
+                        url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            max-width: 760px;
+            margin: 0 auto 28px;
+            font-size: 17px;
+            color: #e0ece8;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark-text);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* Stats Strip */
+        .stats-bar {
+            background: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            padding: 25px 6%;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .stat-box h3 {
+            font-size: 28px;
+            color: var(--primary);
+        }
+        .stat-box p {
+            font-size: 13px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 6%;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .section-header p {
+            color: #555;
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
+        /* Bookstore Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #e2ece9;
+            transition: transform 0.2s;
+        }
+        .book-card:hover {
+            transform: translateY(-4px);
+        }
+        .book-cover {
+            background: linear-gradient(135deg, #1b4d3e, #2e7d32);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            min-height: 170px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .book-genre {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: var(--dark-text);
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 12px;
+        }
+        .book-cover h4 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        .book-cover span {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        .book-details {
+            padding: 18px;
+        }
+        .book-price {
+            font-size: 19px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 8px 0 14px;
+        }
+        .book-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .buy-now-btn {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .buy-now-btn:hover {
+            background: var(--secondary);
+        }
+        .add-cart-btn {
+            background: #e8f5e9;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        /* About & Leadership */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .info-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* Services Grid (3A to 3K) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 22px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+        .service-card .code-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .service-card h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .service-card ul {
+            padding-left: 18px;
+            font-size: 14px;
+            color: #444;
+        }
+        .service-card li {
+            margin-bottom: 5px;
+        }
+
+        /* Packages & Rate Card Table */
+        .table-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        th, td {
+            padding: 13px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        th {
+            background: var(--primary);
+            color: white;
+        }
+        tr:hover {
+            background: #f9fbf9;
+        }
+        .rate-badge {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Partners & Governance */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .team-card {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e0e8e4;
+        }
+        .team-card h4 {
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .team-card span {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            color: #b58900;
+            margin-bottom: 8px;
+        }
+        .team-card p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Modal for Book Order */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+        .modal-box {
+            background: white;
+            max-width: 480px;
+            width: 100%;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            font-size: 22px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #123329;
+            color: #d8e6e1;
+            padding: 40px 6% 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        @media (max-width: 650px) {
+            .hero h2 { font-size: 26px; }
+            .nav-links { margin-top: 10px; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="brand">
+            <h1>GREEN PEPPER PUBLICA LLP</h1>
+            <span>"Where Words Take Root." — വാക്കുകൾ വേരൂന്നുന്നിടം</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#bookstore">പുസ്തകശാല (Buy Books)</a></li>
+            <li><a href="#about">ഞങ്ങളെക്കുറിച്ച്</a></li>
+            <li><a href="#services">സേവനങ്ങൾ</a></li>
+            <li><a href="#packages">പാക്കേജുകൾ & നിരക്കുകൾ</a></li>
+            <li><a href="#leadership">നേതൃത്വം</a></li>
+            <li><a href="#contact">ബന്ധപ്പെടുക</a></li>
+            <li><button class="cart-btn" onclick="openCartModal()">🛒 കാർട്ട് (<span id="cart-count">0</span>)</button></li>
+        </ul>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <span class="hero-badge">Literature • Publishing • Creative Knowledge & AI Enterprise</span>
+        <h2>സാഹിത്യ-പ്രസാധന-വിജ്ഞാന രംഗത്തെ വിശ്വസ്ത പങ്കാളി</h2>
+        <p>പുസ്തക പ്രസാധനം, എഡിറ്റിംഗ്, വിവർത്തനം, ഡെവലപ്‌മെന്റ് സെക്ടർ ഡോക്യുമെന്റേഷൻ, ഐഇസി (IEC) മെറ്റീരിയലുകൾ, സ്ക്രിപ്റ്റിംഗ്, എഐ (AI) അധിഷ്ഠിത ഉള്ളടക്ക നിർമ്മാണം എന്നിവ ഒരുകുടക്കീഴിൽ.</p>
+        <div class="hero-buttons">
+            <a href="#bookstore" class="btn-primary">📚 പുസ്തകങ്ങൾ വാങ്ങുക</a>
+            <a href="#packages" class="btn-outline">പ്രസാധന പാക്കേജുകൾ കാണുക</a>
+        </div>
+    </div>
+
+    <!-- Highlights Bar -->
+    <div class="stats-bar">
+        <div class="stat-box">
+            <h3>52+</h3>
+            <p>പ്രസിദ്ധീകരിച്ച പുസ്തകങ്ങൾ</p>
+        </div>
+        <div class="stat-box">
+            <h3>18+ വർഷം</h3>
+            <p>വികസന-സാമൂഹിക മേഖലയിലെ അനുഭവസമ്പത്ത്</p>
+        </div>
+        <div class="stat-box">
+            <h3>A മുതൽ Z വരെ</h3>
+            <p>സമഗ്ര പ്രസാധന-എഡിറ്റോറിയൽ പാക്കേജുകൾ</p>
+        </div>
+        <div class="stat-box">
+            <h3>7 പാർട്ണർമാർ</h3>
+            <p>& 5 അംഗ വിദഗ്ദ്ധ ഉപദേശക സമിതി</p>
+        </div>
+    </div>
+
+    <!-- Bookstore Section with Buy Button -->
+    <section id="bookstore">
+        <div class="section-header">
+            <h2>📚 ഗ്രീൻ പെപ്പർ പുസ്തകശാല (Bookstore)</h2>
+            <p>ഞങ്ങൾ പ്രസിദ്ധീകരിച്ച തിരഞ്ഞെടുത്ത കൃതികളും മറ്റ് പുസ്തകങ്ങളും ഇവിടെ നേരിട്ട് ഓർഡർ ചെയ്യാം. 'ഇപ്പോൾ വാങ്ങുക' ബട്ടണിൽ ക്ലിക്ക് ചെയ്ത് പുസ്തകങ്ങൾ സ്വന്തമാക്കൂ.</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="books-grid" id="books-container">
+            <!-- JS വഴി പുസ്തകങ്ങൾ ഇവിടെ ചേർക്കപ്പെടുന്നു -->
+        </div>
+    </section>
+
+    <!-- About & Vision/Mission Section -->
+    <section id="about" style="background: #eaf2ee;">
+        <div class="section-header">
+            <h2>ഞങ്ങളെക്കുറിച്ച് (About Us)</h2>
+            <p>തിരുവനന്തപുരം ആസ്ഥാനമായി പ്രവർത്തിക്കുന്ന സാഹിത്യ, പ്രസാധന, വിജ്ഞാന, കൺസൾട്ടൻസി സ്ഥാപനമാണ് ഗ്രീൻ പെപ്പർ പബ്ലിക്ക എൽ.എൽ.പി (Green Pepper Publica LLP).</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="about-grid">
+            <div class="info-box">
+                <h3>🌱 സ്ഥാപന പശ്ചാത്തലം</h3>
+                <p>52 പുസ്തകങ്ങൾ പ്രസിദ്ധീകരിച്ച് മലയാള പ്രസാധന രംഗത്തും വികസന മേഖലയിലെ ഉള്ളടക്ക നിർമ്മാണത്തിലും ശ്രദ്ധേയമായ 'ഗ്രീൻ പെപ്പർ പബ്ലിക്ക' എന്ന സ്ഥാപനത്തിന്റെ വിപുലീകരിച്ച രൂപമാണ് <strong>Green Pepper Publica LLP</strong>. എഴുത്തുകാരെയും സ്ഥാപനങ്ങളെയും ആശയത്തിൽ നിന്ന് പൂർണ്ണരൂപത്തിലുള്ള പുസ്തകത്തിലേക്കും ജനങ്ങളിലേക്കും എത്തിക്കാൻ ഞങ്ങൾ സഹായിക്കുന്നു.</p>
+            </div>
+            <div class="info-box">
+                <h3>🎯 വിഷൻ & മിഷൻ (Vision & Mission)</h3>
+                <p><strong>വിഷൻ:</strong> മലയാള സാഹിത്യത്തെയും ചിന്താപരമായ പ്രസാധനത്തെയും പരിപോഷിപ്പിക്കുക; പരമ്പരാഗത മാർഗ്ഗങ്ങളിലൂടെയും എഐ (AI) സാങ്കേതികവിദ്യയിലൂടെയും മികച്ച ഉള്ളടക്കം എല്ലാവരിലുമെത്തിക്കുക.</p>
+                <p style="margin-top:8px;"><strong>മിഷൻ:</strong> എഴുത്തുകാർക്കും സ്ഥാപനങ്ങൾക്കും വിശ്വസനീയമായ എഡിറ്റോറിയൽ, പ്രസാധന, ഡിസൈൻ, കമ്മ്യൂണിക്കേഷൻ സേവനങ്ങൾ നൽകുക.</p>
+            </div>
+            <div class="info-box">
+                <h3>👩‍💼 സ്ഥാപക നേതൃത്വം: ബീന എടതൊടി (ബിനു ആനമങ്ങാട്)</h3>
+                <p>എഴുത്തുകാരിയും എഡിറ്ററും പ്രസാധകയും ഡെവലപ്‌മെന്റ് കൺസൾട്ടന്റുമായ <strong>ബീന എടതൊടി (ബിനു ആനമങ്ങാട്)</strong> ആണ് മാനേജിംഗ് പാർട്ണർ. 4 മലയാളം പുസ്തകങ്ങളുടെ രചയിതാവും 52 പുസ്തകങ്ങളുടെ പ്രസാധകയുമാണ്. കുടുംബശ്രീ മിഷനിൽ (NULM സ്റ്റേറ്റ് മിഷൻ മാനേജർ ഉൾപ്പെടെ) 18 വർഷത്തിലേറെ സാമൂഹിക വികസന പ്രവർത്തനങ്ങളിൽ നേതൃപരമായ പങ്കുവഹിച്ചിട്ടുണ്ട് (MSW, BA Literature, UGC-NET).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Services Section (3A - 3K) -->
+    <section id="services">
+        <div class="section-header">
+            <h2>ഞങ്ങളുടെ പ്രധാന സേവനങ്ങൾ (Core Services)</h2>
+            <p>സാഹിത്യ രചന മുതൽ എഐ (AI) പരിശീലനവും സിഎസ്ആർ (CSR) ലൈബ്രറി നിർമ്മാണവും വരെയുള്ള 11 വിഭാഗങ്ങൾ</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3A</span>
+                <h3>സാഹിത്യ-രചനാ-പ്രസാധന സേവനങ്ങൾ</h3>
+                <ul>
+                    <li>പുസ്തക പ്രസാധനം (Editing, Cover, Layout, ISBN, Printing)</li>
+                    <li>ഇ-ബുക്കുകൾ & ഡിജിറ്റൽ പബ്ലിക്കേഷൻസ്</li>
+                    <li>ആത്മകഥ, ജീവചരിത്രം, ഓർമ്മക്കുറിപ്പുകൾ രചനാ സഹായം</li>
+                    <li>കവിത, കഥ, ബാലസാഹിത്യ വികസനവും മെന്ററിംഗും</li>
+                    <li>മലയാളം-ഇംഗ്ലീഷ് സാഹിത്യ വിവർത്തനം</li>
+                    <li>എഡിറ്റിംഗ്, പ്രൂഫ് റീഡിംഗ് & എഴുത്തു ശില്പശാലകൾ</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3B</span>
+                <h3>നോളജ് പ്രോഡക്ട്സ് & IEC മെറ്റീരിയലുകൾ</h3>
+                <ul>
+                    <li>സ്ഥാപനങ്ങൾക്കുള്ള റിപ്പോർട്ടുകൾ, മാനുവലുകൾ, കൈപ്പുസ്തകങ്ങൾ</li>
+                    <li>പരിശീലന മൊഡ്യൂളുകൾ, കേസ് സ്റ്റഡികൾ, പോളിസി ബ്രീഫുകൾ</li>
+                    <li>വികസന പദ്ധതികൾക്കായുള്ള IEC ബ്രോഷറുകൾ, പോസ്റ്ററുകൾ</li>
+                    <li>പബ്ലിക് റിലേഷൻസ് (PR) & മീഡിയ കോർഡിനേഷൻ</li>
+                    <li>സോഷ്യൽ മീഡിയ മാനേജ്‌മെന്റ് & ഡിസൈനിംഗ്</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3C</span>
+                <h3>സ്ക്രിപ്റ്റിംഗ് & ഓഡിയോ-വിഷ്വൽ ഉള്ളടക്കം</h3>
+                <ul>
+                    <li>ഡോക്യുമെന്ററി, ഷോർട്ട് ഫിലിം, വെബ് സീരീസ് തിരക്കഥകൾ</li>
+                    <li>എക്സ്പ്ലെയിനർ വീഡിയോ, അനിമേഷൻ സ്റ്റോറിബോർഡുകൾ</li>
+                    <li>റീൽസ് (Reels), ഷോർട്സ്, പരസ്യ ക്യാമ്പയിൻ സ്ക്രിപ്റ്റുകൾ</li>
+                    <li>റേഡിയോ, പോഡ്‌കാസ്റ്റ്, ഓഡിയോ ബുക്ക് സ്ക്രിപ്റ്റുകൾ</li>
+                    <li>തെരുവുനാടകം, സ്റ്റേജ് പ്രോഗ്രാം സ്ക്രിപ്റ്റുകൾ, സബ്ടൈറ്റിലിംഗ്</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3D</span>
+                <h3>എഐ (AI) അധിഷ്ഠിത സേവനങ്ങളും പരിശീലനവും</h3>
+                <ul>
+                    <li>പ്രോംപ്റ്റ് എഞ്ചിനീയറിംഗ് & എഐ ഉള്ളടക്ക നിർമ്മാണം</li>
+                    <li>എഴുത്തുകാർക്കും അധ്യാപകർക്കും സ്ഥാപനങ്ങൾക്കുമായി AI ശില്പശാലകൾ</li>
+                    <li>സ്ഥാപനങ്ങൾക്കായി കസ്റ്റം AI അസിസ്റ്റന്റുകളും നോളജ് ബേസും</li>
+                    <li>മലയാളം-ഇംഗ്ലീഷ് ട്രാൻസ്ക്രിപ്ഷൻ, സംഗ്രഹിക്കൽ</li>
+                    <li>ഉത്തരവാദിത്തമുള്ള എഐ (Responsible AI) മാർഗ്ഗരേഖകൾ</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3E</span>
+                <h3>വിദ്യാഭ്യാസ-ഗവേഷണ പ്രസാധനം</h3>
+                <ul>
+                    <li>അക്കാദമിക് പേപ്പറുകൾ, തീസിസുകൾ എന്നിവയുടെ എഡിറ്റിംഗ്</li>
+                    <li>ജേണൽ മാർഗ്ഗനിർദ്ദേശങ്ങൾക്കനുസരിച്ചുള്ള ഫോർമാറ്റിംഗ് (APA, MLA)</li>
+                    <li>റെഫറൻസ് പരിശോധനയും സിമിലാരിറ്റി ചെക്കും</li>
+                    <li>സ്ഥാപന ജേണലുകൾ (ISSN/DOI), കോൺഫറൻസ് പ്രൊസീഡിംഗ്സ്</li>
+                    <li>പാഠപുസ്തകങ്ങളും പഠനസഹായികളും തയ്യാറാക്കൽ</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3F & 3G</span>
+                <h3>പുസ്തക വിതരണവും ലിറ്റററി ഏജൻസിയും</h3>
+                <ul>
+                    <li>വെബ്‌സൈറ്റ്, വാട്ട്‌സ്ആപ്പ്, ബുക്ക് ഷോപ്പുകൾ വഴിയുള്ള വിതരണം</li>
+                    <li>ലൈബ്രറികൾ, സ്കൂളുകൾ, കോളേജുകൾ, പുസ്തകമേളകൾ എന്നിവയിലേക്ക് വിതരണം</li>
+                    <li>പ്രിന്റ്-ഓൺ-ഡിമാൻഡ് (Print-on-Demand) സൗകര്യം</li>
+                    <li>വിവർത്തന-സിനിമ-വെബ് സീരീസ് അവകാശങ്ങൾ (Adaptation Rights)</li>
+                    <li>എഴുത്തുകാരുടെ ലിറ്റററി ഏജന്റ് സേവനവും റോയൽറ്റി മാനേജ്‌മെന്റും</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <span class="code-tag">വിഭാഗം 3H - 3K</span>
+                <h3>CSR ലൈബ്രറി, ആർക്കൈവിംഗ് & അക്കാദമി</h3>
+                <ul>
+                    <li><strong>CSR വായനാ സൗകര്യങ്ങൾ:</strong> ഗ്രാമീണ സ്കൂളുകളിലും പൊതുഇടങ്ങളിലും ആധുനിക ലൈബ്രറികളും റീഡിംഗ് കോർണറുകളും</li>
+                    <li><strong>ഡിജിറ്റൽ ആർക്കൈവിംഗ്:</strong> അപൂർവ്വ ഗ്രന്ഥങ്ങളുടെ സ്കാനിംഗ്, മലയാളം OCR, ഇ-ലൈബ്രറി</li>
+                    <li><strong>മെറ്റാഡാറ്റ പ്ലാറ്റ്‌ഫോം:</strong> മലയാള പുസ്തകങ്ങളുടെ ഡിജിറ്റൽ ബിബ്ലിയോഗ്രാഫി</li>
+                    <li><strong>പബ്ലിഷിംഗ് അക്കാദമി:</strong> എഡിറ്റിംഗ്, പ്രസാധന പരിശീലന കോഴ്സുകൾ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages & Indicative Rates Section -->
+    <section id="packages" style="background: #f0f5f2;">
+        <div class="section-header">
+            <h2>പ്രസാധന പാക്കേജുകളും പ്രാരംഭ നിരക്കുകളും (Packages A to Z)</h2>
+            <p>എഴുത്തുകാർക്കും സ്ഥാപനങ്ങൾക്കും ആവശ്യാനുസരണം തിരഞ്ഞെടുക്കാവുന്ന പാക്കേജുകൾ (GST-യ്ക്ക് മുൻപുള്ള പ്രാരംഭ നിരക്കുകൾ)</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>പാക്കേജ്</th>
+                        <th>ആർക്കൊക്കെ അനുയോജ്യം</th>
+                        <th>ഉൾപ്പെടുന്ന സേവനങ്ങൾ</th>
+                        <th>പ്രാരംഭ നിരക്ക് (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Package A:</strong> Manuscript Review</td>
+                        <td>കൈയെഴുത്തുപ്രതി വിലയിരുത്താൻ ആഗ്രഹിക്കുന്ന എഴുത്തുകാർക്ക്</td>
+                        <td>പ്രാഥമിക വിലയിരുത്തൽ, ഘടന-ഉള്ളടക്ക നിർദ്ദേശങ്ങൾ</td>
+                        <td class="rate-badge">₹3,000 – ₹8,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package B:</strong> Editing & Proofreading</td>
+                        <td>എഴുതി പൂർത്തിയാക്കിയ പുസ്തകങ്ങൾക്കും റിപ്പോർട്ടുകൾക്കും</td>
+                        <td>കോപ്പി എഡിറ്റിംഗ്, പ്രൂഫ് റീഡിംഗ്, ഫൈനൽ പ്രൂഫ് (1000 വാക്കിന്)</td>
+                        <td class="rate-badge">₹400 – ₹1,800 / 1000 words</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package C:</strong> Complete Book Production</td>
+                        <td>പൂർണ്ണരൂപത്തിൽ പുസ്തകം പുറത്തിറക്കാൻ (120–200 പേജ്)</td>
+                        <td>എഡിറ്റിംഗ്, കവർ ഡിസൈൻ, ലേഔട്ട്, ISBN, പ്രിന്റ് കോർഡിനേഷൻ</td>
+                        <td class="rate-badge">₹60,000 – ₹1,80,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package D & E:</strong> Institutional & Knowledge Products</td>
+                        <td>സ്ഥാപനങ്ങൾ, NGO-കൾ, സർക്കാർ പ്രോജക്ടുകൾ</td>
+                        <td>റിപ്പോർട്ടുകൾ, കൈപ്പുസ്തകങ്ങൾ, കേസ് സ്റ്റഡികൾ, ഡിസൈൻ</td>
+                        <td class="rate-badge">₹30,000 – ₹2,00,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package F:</strong> AI Workflow & Training</td>
+                        <td>എഴുത്തുകാർക്കും സ്ഥാപനങ്ങൾക്കും AI പരിശീലനം</td>
+                        <td>പ്രോംപ്റ്റ് ഡിസൈൻ, AI ഡ്രാഫ്റ്റിംഗ്, ശില്പശാലകൾ</td>
+                        <td class="rate-badge">₹10,000 – ₹1,00,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package G:</strong> Author Self-Publishing</td>
+                        <td>സ്വന്തമായി പുസ്തകം പ്രസിദ്ധീകരിക്കുന്ന എഴുത്തുകാർക്ക്</td>
+                        <td>പബ്ലിക്കേഷൻ പ്ലാനിംഗ്, എഡിറ്റോറിയൽ, കവർ, ലേഔട്ട്, ISBN, ലോഞ്ച്</td>
+                        <td class="rate-badge">₹25,000 – ₹75,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package H:</strong> Literary Events</td>
+                        <td>പുസ്തക പ്രകാശനം, സാഹിത്യ ചർച്ചകൾ, ശില്പശാലകൾ</td>
+                        <td>പ്രോഗ്രാം ഡിസൈൻ, അതിഥി ഏകോപനം, പ്രൊമോഷൻ, റിപ്പോർട്ട്</td>
+                        <td class="rate-badge">₹25,000 – ₹1,00,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package I & J:</strong> Social Media, PR & IEC</td>
+                        <td>ബ്രാൻഡുകൾക്കും വികസന ക്യാമ്പയിനുകൾക്കും</td>
+                        <td>സോഷ്യൽ മീഡിയ പേജ് മാനേജ്‌മെന്റ്, പ്രസ് നോട്ട്, IEC പോസ്റ്ററുകൾ</td>
+                        <td class="rate-badge">₹10,000 – ₹1,50,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package L & M:</strong> Academic & Research Publishing</td>
+                        <td>ഗവേഷകർ, സർവ്വകലാശാലകൾ, കോളേജുകൾ</td>
+                        <td>അക്കാദമിക് എഡിറ്റിംഗ്, ജേണൽ ഫോർമാറ്റിംഗ്, എഡിറ്റഡ് വോള്യങ്ങൾ</td>
+                        <td class="rate-badge">₹3,000 – ₹2,00,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package O:</strong> Literary Translation</td>
+                        <td>മലയാളം - ഇംഗ്ലീഷ് വിവർത്തനം</td>
+                        <td>വിദഗ്ദ്ധ വിവർത്തനവും എഡിറ്റോറിയൽ റിവ്യൂവും</td>
+                        <td class="rate-badge">₹1.50 – ₹2.50 / word</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package P:</strong> Memoir & Biography</td>
+                        <td>വ്യക്തികൾക്കും കുടുംബങ്ങൾക്കും സ്ഥാപനങ്ങൾക്കും</td>
+                        <td>അഭിമുഖങ്ങൾ, ഗവേഷണം, ആത്മകഥ/ജീവചരിത്ര രചന</td>
+                        <td class="rate-badge">₹60,000 – ₹2,50,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Package R & S:</strong> Author Branding & Distribution</td>
+                        <td>എഴുത്തുകാരുടെ വെബ്‌സൈറ്റും പുസ്തക വിതരണവും</td>
+                        <td>ഓതർ വെബ്‌സൈറ്റ്, ബുക്ക് ഷോപ്പ്-ഓൺലൈൻ വിതരണം</td>
+                        <td class="rate-badge">₹25,000–₹60,000 / 15-25%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Packages T–Z:</strong> Agency, CSR Libraries & Academy</td>
+                        <td>റൈറ്റ്സ് ലൈസൻസിംഗ്, CSR ലൈബ്രറി, ഡിജിറ്റൈസേഷൻ, അക്കാദമി</td>
+                        <td>ലിറ്റററി ഏജൻസി, തിരക്കഥാ രൂപാന്തരം, ക്ലൗഡ് ഇ-ലൈബ്രറി, കോഴ്സുകൾ</td>
+                        <td class="rate-badge">പ്രോജക്ട് അനുസരിച്ച്</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Partners & Advisory Council Section -->
+    <section id="leadership">
+        <div class="section-header">
+            <h2>പാർട്ണർമാരും ഉപദേശക സമിതിയും (Leadership & Governance)</h2>
+            <p>7 പാർട്ണർമാരുടെ കൂട്ടായ നേതൃത്വവും 5 അംഗ വിദഗ്ദ്ധ ഉപദേശക സമിതിയുടെ മാർഗ്ഗനിർദ്ദേശവും</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <h4>ബീന എടതൊടി (ബിനു ആനമങ്ങാട്)</h4>
+                <span>Founding & Managing Partner</span>
+                <p>സ്ഥാപനത്തിന്റെ പൊതുവായ നേതൃത്വം, സ്ട്രാറ്റജി, പബ്ലിഷിംഗ് പ്രോഗ്രാം, പ്രമുഖ സ്ഥാപനങ്ങളുമായുള്ള ബന്ധം.</p>
+            </div>
+            <div class="team-card">
+                <h4>Executive Partner</h4>
+                <span>Finance, Compliance & Administration</span>
+                <p>അക്കൗണ്ട്സ്, ബാങ്കിംഗ്, ടാക്സേഷൻ, ജിഎസ്ടി, കരാറുകൾ, റോയൽറ്റി ലെഡ്ജർ.</p>
+            </div>
+            <div class="team-card">
+                <h4>Partner - Editorial & Publishing</h4>
+                <span>Designated Partner</span>
+                <p>കൈയെഴുത്തുപ്രതി വിലയിരുത്തൽ, എഡിറ്റിംഗ് ഗുണനിലവാരം, ISBN, പ്രിന്റിംഗ് & വിതരണ ഏകോപനം.</p>
+            </div>
+            <div class="team-card">
+                <h4>Partner - Design & Production</h4>
+                <span>Creative & Layout</span>
+                <p>കവർ ഡിസൈൻ, പുസ്തക ലേഔട്ട്, പ്രിന്റ്-ഡിജിറ്റൽ ഫയലുകൾ, പ്രൊഡക്ഷൻ മാനേജ്‌മെന്റ്.</p>
+            </div>
+            <div class="team-card">
+                <h4>Partner - Marketing & PR</h4>
+                <span>Social Media & Publicity</span>
+                <p>സോഷ്യൽ മീഡിയ മാനേജ്‌മെന്റ്, മീഡിയ റിലേഷൻസ്, പുസ്തകങ്ങളുടെയും ക്ലയന്റുകളുടെയും പ്രൊമോഷൻ.</p>
+            </div>
+            <div class="team-card">
+                <h4>Partner - Literary Events</h4>
+                <span>Communications & Programmes</span>
+                <p>പുസ്തക പ്രകാശനങ്ങൾ, സാഹിത്യോത്സവങ്ങൾ, ശില്പശാലകൾ, കമ്മ്യൂണിറ്റി പ്രോഗ്രാമുകൾ.</p>
+            </div>
+            <div class="team-card">
+                <h4>Partner - AI & Knowledge Products</h4>
+                <span>Digital & IEC Solutions</span>
+                <p>എഐ (AI) വർക്ക്ഫ്ലോകളും പരിശീലനവും, ഇ-ബുക്കുകൾ, സ്ഥാപന റിപ്പോർട്ടുകൾ, മൊഡ്യൂളുകൾ, IEC.</p>
+            </div>
+            <div class="team-card" style="background:#f9fbf9; border-left: 4px solid var(--accent);">
+                <h4>വിദഗ്ദ്ധ ഉപദേശക സമിതി (Advisory Council)</h4>
+                <span>5 സ്വതന്ത്ര വിദഗ്ദ്ധർ</span>
+                <p>മലയാള സാഹിത്യവും പ്രസാധനവും, വികസന മേഖലയും പോളിസിയും, നിയമം/ചാർട്ടേഡ് അക്കൗണ്ടൻസി, എഐ & ഡിജിറ്റൽ, ഡിസൈൻ & സോഷ്യൽ മീഡിയ.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Proposal Section -->
+    <section id="contact" style="background: #eaf2ee;">
+        <div class="section-header">
+            <h2>ഞങ്ങളുമായി ബന്ധപ്പെടുക (Get in Touch)</h2>
+            <p>നിങ്ങളുടെ പുസ്തക പ്രസാധനം, എഡിറ്റിംഗ്, അല്ലെങ്കിൽ സ്ഥാപന പ്രോജക്ടുകൾക്കായി കൊട്ടേഷൻ (Proposal & Quotation) ആവശ്യപ്പെടാം.</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="about-grid">
+            <div class="info-box">
+                <h3>📍 ഓഫീസ് വിലാസം</h3>
+                <p><strong>Green Pepper Publica LLP</strong></p>
+                <p>തിരുവനന്തപുരം, കേരളം (Thiruvananthapuram, Kerala)</p>
+                <p style="margin-top:10px;"><strong>പ്രവർത്തന രീതി (6 ഘട്ടങ്ങൾ):</strong><br>
+                1. Brief (ആവശ്യം മനസ്സിലാക്കൽ) → 2. Proposal & Quotation → 3. Agreement → 4. Production → 5. Delivery → 6. Follow-up & Promotion</p>
+                <p style="margin-top:10px; font-size:13px; color:#555;">* ലാഭേച്ഛയില്ലാത്ത സ്ഥാപനങ്ങൾക്കും (NGOs) സർക്കാർ-സ്ഥാപന ബൾക്ക് വർക്കുകൾക്കും പ്രത്യേക കിഴിവ് ലഭ്യമാണ്.</p>
+            </div>
+
+            <form class="info-box" onsubmit="submitEnquiry(event)">
+                <h3>✉️ പ്രൊപ്പോസൽ / അന്വേഷണം അയക്കുക</h3>
+                <div class="form-group">
+                    <label>നിങ്ങളുടെ പേര് / സ്ഥാപനം</label>
+                    <input type="text" id="enq-name" required placeholder="പേര് നൽകുക">
+                </div>
+                <div class="form-group">
+                    <label>ഫോൺ / വാട്ട്‌സ്ആപ്പ് നമ്പർ</label>
+                    <input type="tel" id="enq-phone" required placeholder="ഫോൺ നമ്പർ">
+                </div>
+                <div class="form-group">
+                    <label>ആവശ്യമുള്ള സേവനം / പാക്കേജ്</label>
+                    <select id="enq-service">
+                        <option value="Book Publishing (Package C / G)">പുസ്തക പ്രസാധനം (Book Publishing)</option>
+                        <option value="Editing & Proofreading (Package B)">എഡിറ്റിംഗ് & പ്രൂഫ് റീഡിംഗ്</option>
+                        <option value="Institutional Report / IEC (Package D / E / J)">സ്ഥാപന റിപ്പോർട്ട് / കൈപ്പുസ്തകം / IEC</option>
+                        <option value="AI Training & Content (Package F)">AI പരിശീലനവും ഉള്ളടക്ക നിർമ്മാണവും</option>
+                        <option value="Memoir / Biography (Package P)">ആത്മകഥ / ജീവചരിത്ര രചന</option>
+                        <option value="Academic & Research Publishing (Package L / M)">അക്കാദമിക് & ഗവേഷണ പ്രസാധനം</option>
+                        <option value="Book Distribution / CSR Library">പുസ്തക വിതരണം / CSR ലൈബ്രറി</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>വിവരണം (Brief)</label>
+                    <textarea id="enq-msg" rows="3" placeholder="നിങ്ങളുടെ പ്രോജക്ടിനെക്കുറിച്ച് ചുരുക്കത്തിൽ എഴുതുക..."></textarea>
+                </div>
+                <button type="submit" class="buy-now-btn" style="width:100%; padding:12px; font-size:15px;">അന്വേഷണം സമർപ്പിക്കുക</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Book Order / Cart Modal -->
+    <div class="modal-overlay" id="order-modal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeModal()">✕</button>
+            <h3 style="color:var(--primary); margin-bottom:12px;">📦 പുസ്തകം ഓർഡർ ചെയ്യുക</h3>
+            <div id="order-summary" style="background:#f4f9f6; padding:12px; border-radius:8px; margin-bottom:15px; font-size:14px;"></div>
+            <form onsubmit="confirmBookOrder(event)">
+                <div class="form-group">
+                    <label>വാങ്ങുന്നയാളുടെ പേര്</label>
+                    <input type="text" id="buyer-name" required placeholder="നിങ്ങളുടെ പേര്">
+                </div>
+                <div class="form-group">
+                    <label>ഫോൺ / വാട്ട്‌സ്ആപ്പ് നമ്പർ</label>
+                    <input type="tel" id="buyer-phone" required placeholder="മൊബൈൽ നമ്പർ">
+                </div>
+                <div class="form-group">
+                    <label>പുസ്തകം അയക്കേണ്ട പൂർണ്ണ വിലാസം (PIN കോഡ് സഹിതം)</label>
+                    <textarea id="buyer-address" rows="3" required placeholder="വീട്ടുപേര്, സ്ഥലം, ജില്ല, പിൻകോഡ്"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>പേയ്‌മെന്റ് രീതി</label>
+                    <select id="buyer-payment">
+                        <option value="UPI / Google Pay">UPI / Google Pay (Prepaid)</option>
+                        <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                        <option value="Author Signed Copy Request">എഴുത്തുകാരന്റെ കൈയൊപ്പോടുകൂടിയ കോപ്പി (Pre-order)</option>
+                    </select>
+                </div>
+                <button type="submit" class="buy-now-btn" style="width:100%; padding:12px; font-size:15px;">✅ ഓർഡർ ഉറപ്പാക്കുക (WhatsApp വഴി അയക്കുക)</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>GREEN PEPPER PUBLICA LLP</strong> — "Where Words Take Root."</p>
+        <p style="margin-top:6px; font-size:13px; opacity:0.85;">Literature, Publishing & Creative Knowledge Enterprise | Thiruvananthapuram, Kerala</p>
+        <p style="margin-top:12px; font-size:12px; opacity:0.7;">&copy; 2026 Green Pepper Publica LLP. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // കമ്പനി പ്രൊഫൈലിലെ പുസ്തകങ്ങളുടെ ലിസ്റ്റ്
+        const books = [
+            {
+                id: 1,
+                title: "മഴ പെയ്യിക്കാൻ ആരോ വരുന്നുണ്ട്",
+                engTitle: "Mazha Peyyikkan Aaro Varunnund",
+                author: "ബിനു ആനമങ്ങാട് (Binu Anamangad)",
+                genre: "കവിത (Poetry)",
+                price: 160
+            },
+            {
+                id: 2,
+                title: "ഫിഷ് തെറാപ്പി",
+                engTitle: "Fish Therapy",
+                author: "ബിനു ആനമങ്ങാട് (Binu Anamangad)",
+                genre: "കവിത (Poetry)",
+                price: 150
+            },
+            {
+                id: 3,
+                title: "ക്രഷ് ദ ബോട്ടിൽ ആഫ്റ്റർ യൂസ് അഥവാ ഓർമ്മകൾ ചാവേറുന്ന ആകാശക്കപ്പൽ",
+                engTitle: "Crush the Bottle After Use...",
+                author: "ബിനു ആനമങ്ങാട് (Binu Anamangad)",
+                genre: "കവിത (Poetry)",
+                price: 180
+            },
+            {
+                id: 4,
+                title: "പ്രണയമല്ലാതൊന്നുമില്ലീ ഭൂമിയിൽ",
+                engTitle: "Pranayamallathonnumillee Bhoomiyil",
+                author: "ബിനു ആനമങ്ങാട് (Binu Anamangad)",
+                genre: "കവിത (Poetry)",
+                price: 170
+            },
+            {
+                id: 5,
+                title: "ഗ്രീൻ പെപ്പർ തിരഞ്ഞെടുത്ത കൃതികൾ (52 Titles Catalogue)",
+                engTitle: "Green Pepper Imprint Collection",
+                author: "വിവിധ എഴുത്തുകാർ",
+                genre: "വിവിധ വിഭാഗങ്ങൾ",
+                price: 250
+            }
+        ];
+
+        let cart = [];
+
+        function renderBooks() {
+            const container = document.getElementById('books-container');
+            container.innerHTML = '';
+            books.forEach(book => {
+                const card = document.createElement('div');
+                card.className = 'book-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="book-cover">
+                            <span class="book-genre">${book.genre}</span>
+                            <h4>${book.title}</h4>
+                            <span>✍️ ${book.author}</span>
+                        </div>
+                        <div class="book-details">
+                            <div style="font-size:12px; color:#666;">${book.engTitle}</div>
+                            <div class="book-price">₹${book.price}</div>
+                            <div class="book-actions">
+                                <button class="buy-now-btn" onclick="buySingleBook(${book.id})">⚡ ഇപ്പോൾ വാങ്ങുക (Buy Now)</button>
+                                <button class="add-cart-btn" onclick="addToCart(${book.id})">+ 🛒</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function addToCart(bookId) {
+            const book = books.find(b => b.id === bookId);
+            cart.push(book);
+            document.getElementById('cart-count').textContent = cart.length;
+            alert(`"${book.title}" കാർട്ടിലേക്ക് ചേർത്തു!`);
+        }
+
+        function buySingleBook(bookId) {
+            const book = books.find(b => b.id === bookId);
+            cart = [book];
+            document.getElementById('cart-count').textContent = cart.length;
+            openCartModal();
+        }
+
+        function openCartModal() {
+            if (cart.length === 0) {
+                alert('നിങ്ങളുടെ കാർട്ടിൽ നിലവിൽ പുസ്തകങ്ങളില്ല. ദയവായി ഒരു പുസ്തകം തിരഞ്ഞെടുക്കുക.');
+                return;
+            }
+            const summaryEl = document.getElementById('order-summary');
+            let total = 0;
+            let listHtml = '<ul style="padding-left:18px; margin-bottom:8px;">';
+            cart.forEach(item => {
+                total += item.price;
+                listHtml += `<li><strong>${item.title}</strong> - ₹${item.price}</li>`;
+            });
+            listHtml += `</ul><strong>ആകെ തുക (Total): ₹${total}</strong>`;
+            summaryEl.innerHTML = listHtml;
+            document.getElementById('order-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('order-modal').style.display = 'none';
+        }
+
+        function confirmBookOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('buyer-name').value;
+            const phone = document.getElementById('buyer-phone').value;
+            const address = document.getElementById('buyer-address').value;
+            const payment = document.getElementById('buyer-payment').value;
+
+            let bookList = cart.map(b => `${b.title} (₹${b.price})`).join(', ');
+            let total = cart.reduce((sum, b) => sum + b.price, 0);
+
+            const orderText = `പുതിയ പുസ്തക ഓർഡർ (Green Pepper Publica LLP):\nപുസ്തകങ്ങൾ: ${bookList}\nആകെ തുക: ₹${total}\nപേര്: ${name}\nഫോൺ: ${phone}\nവിലാസം: ${address}\nപേയ്മെന്റ് രീതി: ${payment}`;
+
+            alert('നന്ദി! നിങ്ങളുടെ ഓർഡർ വിവരങ്ങൾ തയ്യാറായിക്കഴിഞ്ഞു:\n\n' + orderText);
+            cart = [];
+            document.getElementById('cart-count').textContent = '0';
+            closeModal();
+        }
+
+        function submitEnquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('enq-name').value;
+            const service = document.getElementById('enq-service').value;
+            alert(`നന്ദി ${name}! "${service}" സംബന്ധിച്ച നിങ്ങളുടെ അന്വേഷണം Green Pepper Publica LLP-യിൽ ലഭിച്ചിട്ടുണ്ട്. ഞങ്ങൾ ഉടൻ തന്നെ പ്രൊപ്പോസലുമായി ബന്ധപ്പെടുന്നതാണ്.`);
+            e.target.reset();
+        }
+
+        renderBooks();
+    </script>
+</body>
+</html>
